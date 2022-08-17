@@ -20,6 +20,16 @@ class Paper extends React.Component {
                             Start edit the text below to find an available City
                         </Typography>
                         <Autocomplete
+                            value={this.props.selectedCity}
+                            options={this.props.availableCities}
+                            onChange={(event, newValue) => {
+                                this.props.onSelectedCity(newValue);
+                            }}
+                            onInputChange={(event, newInputValue) => {
+                                if (newInputValue.length >= 1) {
+                                    this.props.onSearchCities(newInputValue);
+                                }
+                              }}
                             id="controllable-states-demo"
                             sx={{ width: 300 }}
                             renderInput={(params) => <TextField {...params} label="Controllable" />}
