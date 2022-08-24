@@ -1,7 +1,7 @@
 .App {
     color: black;
-    background-color: #fafafa;
+    background-color: #e1dddd;
     max-width: 600px;
     margin:0 auto;
-    
+    padding-bottom: 24px;
 }
