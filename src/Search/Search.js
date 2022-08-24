@@ -13,7 +13,24 @@ const SearchComponent = () => {
         { label: 'Milano', id: 1 },
         { label: 'Napoli', id: 2 }
     ])
-    const [selectedCity, setSelectedCity] = useState(null)
+    const [selectedCity, setSelectedCity] = useState(null);
+    const [text, setText] = useState('')
+
+    const getCities = (filter) => {
+        // update the state 
+        setText(filter)
+        // get the list of cities
+        fetch(`https://dieznakwvj.execute-api.us-east-1.amazonaws.com/Prod/getCities?filter=${filter}`, { method: 'GET' })
+        .then((response) => response.json())
+        .then((response) => {
+            const result = response.map((city, index)=> ({
+                id: index,
+                label: `${city.name} (${city.country})`
+            }));
+            setCities(result);
+        })
+        .catch((error) => console.log(error));
+    }
 
     // render
     return (
@@ -28,6 +45,7 @@ const SearchComponent = () => {
                     </Typography>
                     <div className="Autocomplete">
                         <Autocomplete
+                            filterOptions={(x) => x}
                             value={selectedCity}
                             onChange={(event, newValue) => {
                                 setSelectedCity(newValue);
@@ -37,7 +55,9 @@ const SearchComponent = () => {
                             id="combo-box-demo"
                             options={cities}
                             sx={{ width: 300 }}
-                            renderInput={(params) => <TextField {...params} label="The City Name" />}
+                            renderInput={(params) =>
+                                <TextField {...params} label="The City Name" onChange={(event) => getCities(event.target.value)} />
+                            }
                         />
                     </div>
 
