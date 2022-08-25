@@ -11,3 +11,14 @@ margin-right: 24px;
 .SearchComponent .Weather{
     margin-top: 36px;
 }
+.SearchComponent .Weather .WeatherDay{
+    margin-top: 12px;
+}
+.SearchComponent h5{
+    font-weight: 600;
+}
+img {
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+    margin-top: 12px;
+  }

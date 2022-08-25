@@ -37,6 +37,12 @@ const SearchComponent = () => {
 
     const getWeather = (city) => {
         setSelectedCity(city);
+        if (!city){
+            setWeather({
+                forecast: []
+            })
+            return
+        }
         // get the weather
         fetch(`https://dieznakwvj.execute-api.us-east-1.amazonaws.com/Prod/getWeather?filter=${city.name}`, { method: 'GET' })
             .then((response) => response.json())
