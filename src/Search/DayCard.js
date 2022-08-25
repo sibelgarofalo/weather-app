@@ -7,7 +7,7 @@ const DayCard = (props) => {
         <div>
             <Paper style={{ width: 216, height: 180, padding: '0 12px' }}>
                 <Stack spacing={2} alignItems="center" justifyContent="space-around">
-                    <img src={props.info.text.icon} width="48" />
+                    <img src={props.info.text.icon} width="48" alt="The weather conditions" />
                     <Typography variant="h5" gutterBottom>
                         {Math.round(props.info.temperature)}C
                     </Typography>

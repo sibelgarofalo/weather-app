@@ -13,14 +13,14 @@ const SearchComponent = () => {
     // mystate
     const [cities, setCities] = useState([])
     const [selectedCity, setSelectedCity] = useState(null);
-    const [text, setText] = useState('')
+    // const [text, setText] = useState('')
     const [weather, setWeather] = useState({
         forecast: []
     });
 
     const getCities = (filter) => {
         // update the state 
-        setText(filter)
+        // setText(filter)
         // get the list of cities
         fetch(`https://dieznakwvj.execute-api.us-east-1.amazonaws.com/Prod/getCities?filter=${filter}`, { method: 'GET' })
             .then((response) => response.json())
@@ -92,7 +92,7 @@ const SearchComponent = () => {
                             if (index <= 2) {
                                 return <DayCard info={day} key={index} />
                             }
-
+                            return <></>
                         })
                     }
                 </Stack>
