@@ -80,7 +80,7 @@ const SearchComponent = () => {
             </Card>
 
             <div className="Weather">
-                <Stack direction="row" spacing={2}>
+                <Stack direction="row" spacing={2} alignItems="center" justifyContent="space-around">
                     {
                         weather.forecast.map((day, index) => {
                             if (index <= 2) {
