@@ -22,4 +22,4 @@ jobs:
             npm install
         - name: Production Build
           run: |
-            npm build
+            npm run build
